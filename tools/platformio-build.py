@@ -32,7 +32,7 @@ platform = env.PioPlatform()
 board = env.BoardConfig()
 
 FRAMEWORK_DIR = platform.get_package_dir("framework-arduinoststm32")
-CMSIS_DIR = join(platform.get_package_dir("framework-arduinoststm32"), "CMSIS", "CMSIS")
+CMSIS_DIR = join(platform.get_package_dir("framework-cmsis"), "CMSIS")
 assert isdir(FRAMEWORK_DIR)
 assert isdir(CMSIS_DIR)
 
@@ -238,7 +238,7 @@ env.Append(
         "gcc",
         "stdc++",
     ],
-    LIBPATH=[variant_dir, join(CMSIS_DIR, "DSP", "Lib", "GCC")],
+    LIBPATH=[variant_dir, join(CMSIS_DIR, "Lib", "GCC")],
 )
 
 env.ProcessFlags(board.get("build.framework_extra_flags.arduino", ""))
